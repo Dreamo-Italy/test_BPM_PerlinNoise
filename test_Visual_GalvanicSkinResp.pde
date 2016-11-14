@@ -4,6 +4,10 @@
 // limitations under the License.
 
 /**
+
+ Visual from : Code-Package-Processing-3.x/02_M/M_1_5_02_TOOL/M_1_5_02_TOOL.pde
+ at https://github.com/generative-design/Code-Package-Processing-3.x/blob/master/02_M/M_1_5_02_TOOL/M_1_5_02_TOOL.pde
+ 
  * noise values (noise 2d) are used to animate a bunch of agents.
  * 
  * KEYS
@@ -108,9 +112,9 @@ void draw()
   
   BPM1 = bpmo.getBPM( 1500 ); //GET BPM FUNCTION
   
-  if ( beat.isRange(1,1,1) ) { 
+  if ( beat.isRange(1,1,1) ) { //if KICK is detected...
     
-    int newNoiseSeed = (int) random(100000);
+    int newNoiseSeed = (int) random(100000); // change objects direction
     //println("newNoiseSeed: "+newNoiseSeed);
     noiseSeed(newNoiseSeed);
     
@@ -118,7 +122,7 @@ void draw()
     //noiseScale = 0;
     
     overlayAlphaOld = overlayAlpha;  //  fa una copia del valore attuale di OverlayAlpha
-    overlayAlpha = 255;          //Imposta temporaneamente l'opacità al minimo
+    overlayAlpha = 255;              // Imposta temporaneamente l'opacità al minimo (effetto flash)
     
     agentsAlphaOld = agentsAlpha;
     agentsAlpha = 30;
@@ -137,7 +141,7 @@ void draw()
   stroke(0, agentsAlpha);
   
   //draw agents
-  if (drawMode == 1) {
+  if (drawMode == 1) {    // default is 1
     for(int i=0; i<agentsCount; i++) agents[i].update1();
   } 
   else {
